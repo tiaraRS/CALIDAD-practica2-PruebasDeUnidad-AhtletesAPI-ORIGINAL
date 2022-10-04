@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "416407de-36b2-4519-800f-e5fca859b63d",
+		"name": "AthletesAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAthletes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/athletes",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"athletes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAthlete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/athletes/7",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"athletes",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAthlete",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nationality\": \"Spain\",\r\n    \"numberOfCompetitions\": 36\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/athletes/13",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"athletes",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateAthlete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sifan Hassan\",\r\n    \"nationality\": \"Netherlands\",\r\n    \"isActive\": true,\r\n    \"numberOfCompetitions\": 9,\r\n    \"discipline\": \"1500M\",\r\n    \"gender\": \"F\",\r\n    \"personalBest\": {\r\n        \"Key\": \"2021-08-08T00:00:00\",\r\n        \"Value\": 231.57\r\n    },\r\n    \"seasonBest\": null,\r\n    \"birthDate\": \"1995-04-28T00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/athletes",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"athletes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAthlete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/athletes/4",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"athletes",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Race",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/athletes/race/?discipline=TripleJump&gender=F&podium=true",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"athletes",
+						"race",
+						""
+					],
+					"query": [
+						{
+							"key": "discipline",
+							"value": "TripleJump"
+						},
+						{
+							"key": "gender",
+							"value": "F"
+						},
+						{
+							"key": "podium",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FormRelayTeam",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/athletes/relayTeam/?Discipline=100M&gender=MIX&country=Jamaica&ageCategory=senior",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"athletes",
+						"relayTeam",
+						""
+					],
+					"query": [
+						{
+							"key": "Discipline",
+							"value": "100M"
+						},
+						{
+							"key": "gender",
+							"value": "MIX"
+						},
+						{
+							"key": "country",
+							"value": "Jamaica"
+						},
+						{
+							"key": "ageCategory",
+							"value": "senior"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

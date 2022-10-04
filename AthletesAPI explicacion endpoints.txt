@@ -1,0 +1,40 @@
+
+Nombre: Tiara Natalia Rojas Stambuk
+
+ATHLETES API ENDPOINTS 
+
+Endpoint1: RACE
+
+http://localhost:5500/api/athletes/race/?discipline={discipline}&gender={f/m}&podium={true/false}
+
+
+PARAMS: 
+   - discipline: obligatorio -- disciplina para la competencia, ej 400M, 100M, LongJump, TripleJump 
+   - gender: obligatorio -- genero para la competencia (f/m)
+   - podium: opcional (por defecto falso) -- true/false -- si se quiere obtener el podio de la competencia
+
+Este endpoint simula que se realiza una competencia en la disciplina de atletismo dada como parámetro, según el género especificado como parámetro. Según las marcas de temporada (SeasonBest) o marca personal (PersonalBest) en caso de no tener marca de temporada, se simula que los atletas que compiten en la disciplina solicitada para la carrera y son del género especificado, realizan una competencia. Para esto se genera una marca aleatoria, de acuerdo a la marca de temporada de cada atleta. 
+
+Resultado: 
+   Como resultado de este endpoint se obtiene un resúmen de los resultados de la competencia, que incluye información general de cada atleta que compitió, la marca que realizó, y si es que mejoró su marca personal o marca de temporada. En caso de haber mejorado alguna de estas marcas, se actualiza la información de marca del atleta correspondiente, además de aumentar en 1 el número de competencias para cada atleta que compitió.
+   En caso de que el parámetro podium sea "true", el resultado es únicamente el podio de la competencia, que incluye el nombre de los 3 atletas con mejores marcas del evento y su respectiva marca.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Endpoint2: FORM RELAY TEAM
+
+http://localhost:5500/api/athletes/relayTeam/?discipline={discipline}&gender={f/m}&country={pais}&ageCategory{under-18,under-20,under-23,senior,master}
+
+
+PARAMS: 
+   - discipline: obligatorio -- disciplina para la posta ej 400M, 100M
+   - gender: obligatorio -- genero para el equipo de postas (f/m/mix)
+   - country: obligatorio -- pais para formar el equipo de postas
+   - ageCategory: opcional -- categoria de edad para formar el equipo   (ej senior es la categoria para sub 34)
+
+Este endpoint selecciona el equipo de relevos para la disciplina dada, según el género, país y posible categoría de edad especificados. Para esto, filtra los atletas que cumplen las características dadas (pertenecen al país, género y categoría) y selecciona los 4 mejores atletas para el equipo, según su marca de temporada (SeasonBest). 
+Si es que no existen suficientes atletas para formar el equipo, da el mensaje correspondiente.
+
+Resultado: 
+   Como resultado se obtiene una lista con información general de los 4 atletas que conforman el equipo de relevos.
+
