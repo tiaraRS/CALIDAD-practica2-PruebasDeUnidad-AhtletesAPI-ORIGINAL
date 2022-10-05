@@ -61,9 +61,54 @@ $$
 
 | | Camino   | Entrada   | TC | Salida  |
 | --- | --- | --- | --- | --- |
-| 1 | I 1 3 5 6 F | `disciplineId` valid or invalid,  | `disciplineId = 87` | `Status Code: 500` |
-| 2 | I 1 3 4 F | `disciplineId` invalid,  | `disciplineId = 87` | `Status Code: 404` |
-| 3 | I 1 2 F | `disciplineId` valid,  | `disciplineId = 1` | `Status Code: 200` `[{},{},...]` |
+| 1 | I 1 3 5 6 F | `disciplineId` valid or invalid (throw not expected exception) | `disciplineId = 87` | `Status Code: 500` |
+| 2 | I 1 3 4 F | `disciplineId` invalid  | `disciplineId = 87` | `Status Code: 404` |
+| 3 | I 1 2 F | `disciplineId` valid  | `disciplineId = 1` | `Status Code: 200` `[{},{},...]` |
+
+Camino 1
+```mermaid
+graph TD
+    I(I):::c1 --> 1{1}
+    1 --> 2(2)
+    1:::c1 --> 3{3}
+    3:::c1 --> 4(4)
+    3 --> 5(5)
+    5:::c1 --> 6(6)
+    2 --> F(F)
+    4 --> F(F)
+    6:::c1 --> F(F):::c1
+classDef c1 fill:#F2274C, stroke:#F2274C;
+```
+
+Camino 2
+```mermaid
+graph TD
+    I(I):::c2 --> 1{1}
+    1 --> 2(2)
+    1:::c2 --> 3{3}
+    3:::c2 --> 4(4)
+    3 --> 5(5)
+    5 --> 6(6)
+    2 --> F(F)
+    4:::c2 --> F(F)
+    6 --> F(F):::c2
+classDef c2 fill:#2964D9, stroke:#2964D9;
+```
+
+Camino 3
+```mermaid
+graph TD
+    I(I):::c3 --> 1{1}
+    1 --> 2(2)
+    1:::c3 --> 3{3}
+    3 --> 4(4)
+    3 --> 5(5)
+    5 --> 6(6)
+    2:::c3 --> F(F)
+    4 --> F(F)
+    6 --> F(F):::c3
+classDef c3 fill:#B2A2FA, stroke:#B2A2FA;
+```
 
 ### Pruebas unitarias
 
